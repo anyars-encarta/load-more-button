@@ -22,3 +22,22 @@
     width: 200px;
     height: 200px;
 }
+
+.button-container {
+    margin-bottom: 20px;
+}
+
+.button-container button {
+    padding: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+.button-container button:hover {
+    background-color: white;
+    color: green;
+    border: 1px solid green;
+}
