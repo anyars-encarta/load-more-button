@@ -15,8 +15,15 @@ const LoadMoreData = () => {
             
             const result = await response.json();
 
+            console.log(result);
+            
             if (result && result.products && result.products.length) {
-                setProducts((prevData) => [...prevData, ...result.products]);
+                if (count === 0) {
+                    setProducts(result.products);
+                } else {
+                    setProducts((prevData) => [...prevData, ...result.products]);
+                }
+                
                 setLoading(false);
             }
 
@@ -32,7 +39,7 @@ const LoadMoreData = () => {
 
     useEffect(() => {
         if (products && products.length === 100) setDisableButton(true);
-    });
+    }, [products]);
 
     if (loading) {
         return <div>Loading products! Please wait...</div>
@@ -50,15 +57,14 @@ const LoadMoreData = () => {
     return (
         <div className='load-more-container'>
             <div className='product-container'>
-                {
-                    products && products.length ?
-                        products.map(item =>
+                {products && products.length
+                 ? products.map((item) => (
                             <div className='product' key={item.id}>
                                 <img src={item.thumbnail} alt={item.title} />
                                 <p>{item.title}</p>
-                            </div>)
-                        : null
-                }
+                            </div>
+                            ))
+                        : null}
             </div>
             <div className='button-container'>
                 <button disabled={disableButton} onClick={() => setCount(count + 1)}>Load More Products</button>
