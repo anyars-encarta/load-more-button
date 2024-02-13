@@ -27,7 +27,7 @@
     margin-bottom: 20px;
 }
 
-.button-container button {
+.load-button {
     padding: 10px;
     font-size: 20px;
     cursor: pointer;
@@ -36,7 +36,7 @@
     border: none;
 }
 
-.button-container button:hover {
+.load-button:hover {
     background-color: white;
     color: green;
     border: 1px solid green;
