@@ -5,7 +5,6 @@ const LoadMoreData = () => {
     const [loading, setLoading] = useState(false);
     const [products, setProducts] = useState([]);
     const [count, setCount] = useState(0);
-    // const [errorMessage, setErrorMessage] = useState('');
     const [disableButton, setDisableButton] = useState(false);
 
     const fetchProducts = async () => {
@@ -23,12 +22,11 @@ const LoadMoreData = () => {
                 } else {
                     setProducts((prevData) => [...prevData, ...result.products]);
                 }
-                
+
                 setLoading(false);
             }
 
         } catch (e) {
-            // setErrorMessage(e.message);
             setLoading(false);
         }
     }
@@ -44,15 +42,6 @@ const LoadMoreData = () => {
     if (loading) {
         return <div>Loading products! Please wait...</div>
     }
-
-    // if (errorMessage !== null) {
-    //     return (
-    //       <div>
-    //         Error occured!
-    //         {errorMessage}
-    //       </div>
-    //     );
-    // }
 
     return (
         <div className='load-more-container'>
